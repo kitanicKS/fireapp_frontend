@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "0ee74ba1-bc6f-40d1-a234-f0a66b7580a1",
+		"name": "fireapp_endpunkte",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "base_url",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/lagerort",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/lagerort",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"lagerort"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "der_name",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "soistdashalt",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
