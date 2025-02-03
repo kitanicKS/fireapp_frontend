@@ -23,7 +23,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost/lagerort",
+			"name": "base_url/lagerort",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -34,23 +34,6 @@
 					],
 					"path": [
 						"lagerort"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "2",
-							"disabled": true
-						},
-						{
-							"key": "name",
-							"value": "der_name",
-							"disabled": true
-						},
-						{
-							"key": "description",
-							"value": "soistdashalt",
-							"disabled": true
-						}
 					]
 				}
 			},
