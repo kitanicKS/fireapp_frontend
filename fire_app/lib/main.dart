@@ -167,48 +167,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: AssetImage('assets/Saeule.jpg'),
                   )))))
         ]),
-        Row(children: [
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(1, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  ))))),
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(2, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  ))))),
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(3, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  ))))),
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(4, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  )))))
-        ])
       ])),
     );
   }
