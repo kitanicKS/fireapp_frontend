@@ -38,133 +38,141 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Row(children: [
-        Expanded(
-            child: Column(
-          children: [
+          child: Column(children: [
+        Container(
+          height: 50,
+        ),
+        Row(children: [
+          Expanded(
+              child: Column(
+            children: [
+              InkWell(
+                  onTap: () {
+                    zoom(1, 4);
+                  },
+                  child: Ink(
+                      child: Center(
+                          child: Image(
+                    image: AssetImage('assets/hochregal/14.jpg'),
+                  )))),
+              InkWell(
+                  onTap: () {
+                    zoom(1, 3);
+                  },
+                  child: Ink(
+                      child: Center(
+                          child: Image(
+                    image: AssetImage('assets/hochregal/13.jpg'),
+                  )))),
+              InkWell(
+                  onTap: () {
+                    zoom(1, 2);
+                  },
+                  child: Ink(
+                      child: Center(
+                          child: Image(
+                    image: AssetImage('assets/hochregal/12.jpg'),
+                  )))),
+              InkWell(
+                  onTap: () {
+                    zoom(1, 1);
+                  },
+                  child: Ink(
+                      child: Center(
+                          child: Image(
+                    image: AssetImage('assets/hochregal/11.jpg'),
+                  ))))
+            ],
+          )),
+          Expanded(
+              child: Column(children: [
             InkWell(
                 onTap: () {
-                  zoom(1, 4);
+                  zoom(2, 4);
                 },
                 child: Ink(
                     child: Center(
                         child: Image(
-                  image: AssetImage('assets/hochregal/14.jpg'),
+                  image: AssetImage('assets/hochregal/24.jpg'),
                 )))),
             InkWell(
                 onTap: () {
-                  zoom(1, 3);
+                  zoom(2, 3);
                 },
                 child: Ink(
                     child: Center(
                         child: Image(
-                  image: AssetImage('assets/hochregal/13.jpg'),
+                  image: AssetImage('assets/hochregal/23.jpg'),
                 )))),
             InkWell(
                 onTap: () {
-                  zoom(1, 2);
+                  zoom(2, 2);
                 },
                 child: Ink(
                     child: Center(
                         child: Image(
-                  image: AssetImage('assets/hochregal/12.jpg'),
+                  image: AssetImage('assets/hochregal/22.jpg'),
                 )))),
             InkWell(
                 onTap: () {
-                  zoom(1, 1);
+                  zoom(2, 1);
                 },
                 child: Ink(
                     child: Center(
                         child: Image(
-                  image: AssetImage('assets/hochregal/11.jpg'),
+                  image: AssetImage('assets/hochregal/21.jpg'),
                 ))))
-          ],
-        )),
+          ])),
+          Expanded(
+              child: Column(children: [
+            InkWell(
+                onTap: () {
+                  zoom(3, 4);
+                },
+                child: Ink(
+                    child: Center(
+                        child: Image(
+                  image: AssetImage('assets/hochregal/34.jpg'),
+                )))),
+            InkWell(
+                onTap: () {
+                  zoom(3, 3);
+                },
+                child: Ink(
+                    child: Center(
+                        child: Image(
+                  image: AssetImage('assets/hochregal/33.jpg'),
+                )))),
+            InkWell(
+                onTap: () {
+                  zoom(3, 2);
+                },
+                child: Ink(
+                    child: Center(
+                        child: Image(
+                  image: AssetImage('assets/hochregal/32.jpg'),
+                )))),
+            InkWell(
+                onTap: () {
+                  zoom(3, 1);
+                },
+                child: Ink(
+                    child: Center(
+                        child: Image(
+                  image: AssetImage('assets/hochregal/31.jpg'),
+                ))))
+          ])),
+        ]),
+        Container(
+          height: 50,
+        ),
         Expanded(
-            child: Column(children: [
-          InkWell(
-              onTap: () {
-                zoom(2, 4);
-              },
-              child: Ink(
-                  child: Center(
-                      child: Image(
-                image: AssetImage('assets/hochregal/24.jpg'),
-              )))),
-          InkWell(
-              onTap: () {
-                zoom(2, 3);
-              },
-              child: Ink(
-                  child: Center(
-                      child: Image(
-                image: AssetImage('assets/hochregal/23.jpg'),
-              )))),
-          InkWell(
-              onTap: () {
-                zoom(2, 2);
-              },
-              child: Ink(
-                  child: Center(
-                      child: Image(
-                image: AssetImage('assets/hochregal/22.jpg'),
-              )))),
-          InkWell(
-              onTap: () {
-                zoom(2, 1);
-              },
-              child: Ink(
-                  child: Center(
-                      child: Image(
-                image: AssetImage('assets/hochregal/21.jpg'),
-              ))))
-        ])),
-        Expanded(
-            child: Column(children: [
-          InkWell(
-              onTap: () {
-                zoom(3, 4);
-              },
-              child: Ink(
-                  child: Center(
-                      child: Image(
-                image: AssetImage('assets/hochregal/34.jpg'),
-              )))),
-          InkWell(
-              onTap: () {
-                zoom(3, 3);
-              },
-              child: Ink(
-                  child: Center(
-                      child: Image(
-                image: AssetImage('assets/hochregal/33.jpg'),
-              )))),
-          InkWell(
-              onTap: () {
-                zoom(3, 2);
-              },
-              child: Ink(
-                  child: Center(
-                      child: Image(
-                image: AssetImage('assets/hochregal/32.jpg'),
-              )))),
-          InkWell(
-              onTap: () {
-                zoom(3, 1);
-              },
-              child: Ink(
-                  child: Center(
-                      child: Image(
-                image: AssetImage('assets/hochregal/31.jpg'),
-              ))))
-        ])),
+            child: Row(
+          children: [InkWell(), InkWell()],
+        ))
       ])),
     );
   }
-}
-
-String getsectionPicture(int x, int y) {
-  return 'assets/Saeule.jpg';
 }
 
 String zoom(int x, int y) {
