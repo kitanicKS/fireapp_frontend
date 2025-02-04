@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Ink(
                     child: Center(
                         child: Image(
-                  image: AssetImage(getsectionPicture(1, 4)),
+                  image: AssetImage('assets/hochregal/14.jpg'),
                 )))),
             InkWell(
                 onTap: () {
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Ink(
                     child: Center(
                         child: Image(
-                  image: AssetImage(getsectionPicture(1, 3)),
+                  image: AssetImage('assets/hochregal/13.jpg'),
                 )))),
             InkWell(
                 onTap: () {
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Ink(
                     child: Center(
                         child: Image(
-                  image: AssetImage(getsectionPicture(1, 2)),
+                  image: AssetImage('assets/hochregal/12.jpg'),
                 )))),
             InkWell(
                 onTap: () {
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Ink(
                     child: Center(
                         child: Image(
-                  image: AssetImage(getsectionPicture(1, 1)),
+                  image: AssetImage('assets/hochregal/11.jpg'),
                 ))))
           ],
         )),
@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Ink(
                   child: Center(
                       child: Image(
-                image: AssetImage(getsectionPicture(2, 4)),
+                image: AssetImage('assets/hochregal/24.jpg'),
               )))),
           InkWell(
               onTap: () {
@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Ink(
                   child: Center(
                       child: Image(
-                image: AssetImage(getsectionPicture(2, 3)),
+                image: AssetImage('assets/hochregal/23.jpg'),
               )))),
           InkWell(
               onTap: () {
@@ -107,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Ink(
                   child: Center(
                       child: Image(
-                image: AssetImage(getsectionPicture(2, 2)),
+                image: AssetImage('assets/hochregal/22.jpg'),
               )))),
           InkWell(
               onTap: () {
@@ -116,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Ink(
                   child: Center(
                       child: Image(
-                image: AssetImage(getsectionPicture(2, 1)),
+                image: AssetImage('assets/hochregal/21.jpg'),
               ))))
         ])),
         Expanded(
