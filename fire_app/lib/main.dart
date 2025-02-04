@@ -231,7 +231,25 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: EdgeInsets.all(8.0),
                       child: Text('Anzahl'),
                     ))
-                  ])
+                  ]),
+              ...List.generate(
+                  3,
+                  (index) => const TableRow(children: [
+                        TableCell(
+                            verticalAlignment:
+                                TableCellVerticalAlignment.middle,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text('Gegenstand'),
+                            )),
+                        TableCell(
+                            verticalAlignment:
+                                TableCellVerticalAlignment.middle,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text('Anzahl'),
+                            ))
+                      ]))
             ],
           )
       ]) //)
