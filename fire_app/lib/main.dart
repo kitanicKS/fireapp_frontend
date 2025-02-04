@@ -30,6 +30,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool boxSectionSelected = false;
+  bool boxSelected = false;
+  int boxSectionX = 0;
+  int boxSectionY = 0;
+  int boxPosition = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
+          //child: SingleChildScrollView(
           child: Column(children: [
         Container(
-          height: 50,
+          height: 30,
         ),
         Row(children: [
           Expanded(
@@ -49,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
               InkWell(
                   onTap: () {
                     zoom(1, 4);
+                    setState(() {});
                   },
                   child: Ink(
                       child: Center(
@@ -58,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
               InkWell(
                   onTap: () {
                     zoom(1, 3);
+                    setState(() {});
                   },
                   child: Ink(
                       child: Center(
@@ -67,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
               InkWell(
                   onTap: () {
                     zoom(1, 2);
+                    setState(() {});
                   },
                   child: Ink(
                       child: Center(
@@ -76,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
               InkWell(
                   onTap: () {
                     zoom(1, 1);
+                    setState(() {});
                   },
                   child: Ink(
                       child: Center(
@@ -89,6 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
             InkWell(
                 onTap: () {
                   zoom(2, 4);
+                  setState(() {});
                 },
                 child: Ink(
                     child: Center(
@@ -98,6 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
             InkWell(
                 onTap: () {
                   zoom(2, 3);
+                  setState(() {});
                 },
                 child: Ink(
                     child: Center(
@@ -107,6 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
             InkWell(
                 onTap: () {
                   zoom(2, 2);
+                  setState(() {});
                 },
                 child: Ink(
                     child: Center(
@@ -116,6 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
             InkWell(
                 onTap: () {
                   zoom(2, 1);
+                  setState(() {});
                 },
                 child: Ink(
                     child: Center(
@@ -128,6 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
             InkWell(
                 onTap: () {
                   zoom(3, 4);
+                  setState(() {});
                 },
                 child: Ink(
                     child: Center(
@@ -137,6 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
             InkWell(
                 onTap: () {
                   zoom(3, 3);
+                  setState(() {});
                 },
                 child: Ink(
                     child: Center(
@@ -146,6 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
             InkWell(
                 onTap: () {
                   zoom(3, 2);
+                  setState(() {});
                 },
                 child: Ink(
                     child: Center(
@@ -155,6 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
             InkWell(
                 onTap: () {
                   zoom(3, 1);
+                  setState(() {});
                 },
                 child: Ink(
                     child: Center(
@@ -164,19 +183,84 @@ class _MyHomePageState extends State<MyHomePage> {
           ])),
         ]),
         Container(
-          height: 50,
+          height: 40,
         ),
-        Expanded(
-            child: Row(
-          children: [InkWell(), InkWell()],
-        ))
-      ])),
+        if (boxSectionSelected)
+          Row(
+            children: [
+              Expanded(
+                  child: InkWell(
+                      onTap: () {
+                        selectBox(1);
+                        setState(() {});
+                      },
+                      child: Ink(
+                          child: Center(
+                              child: Image(
+                        image: AssetImage(getZoomPicture(1)),
+                      ))))),
+              Expanded(
+                  child: InkWell(
+                      onTap: () {
+                        selectBox(2);
+                        setState(() {});
+                      },
+                      child: Ink(
+                          child: Center(
+                              child: Image(
+                        image: AssetImage(getZoomPicture(2)),
+                      )))))
+            ],
+          ),
+        if (boxSelected) Container(height: 40),
+        if (boxSelected)
+          Table(
+            border: TableBorder.all(color: Colors.black),
+            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+            children: [
+              const TableRow(
+                  decoration: BoxDecoration(color: Colors.red),
+                  children: [
+                    TableCell(
+                        child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Gegenstand'),
+                    )),
+                    TableCell(
+                        child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Anzahl'),
+                    ))
+                  ])
+            ],
+          )
+      ]) //)
+          ),
     );
   }
-}
 
-String zoom(int x, int y) {
-  return 'assets/Saeule.jpg';
+  void zoom(int x, int y) {
+    boxSectionX = x;
+    boxSectionY = y;
+    if (boxSectionSelected == false) {
+      boxSectionSelected = true;
+    } else {
+      boxSectionSelected = false;
+    }
+  }
+
+  String getZoomPicture(int position) {
+    return 'assets/hochregal/32.jpg';
+  }
+
+  void selectBox(int position) {
+    boxPosition = position;
+    if (boxSelected == false) {
+      boxSelected = true;
+    } else {
+      boxSelected = false;
+    }
+  }
 }
 
 String getBoxname(int x, int y) {
