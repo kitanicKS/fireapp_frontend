@@ -38,141 +38,132 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Column(children: [
-        Row(
+          child: Row(children: [
+        Expanded(
+            child: Column(
           children: [
-            Expanded(
-                child: InkWell(
-                    onTap: () {
-                      zoom(1, 4);
-                    },
-                    child: Ink(
-                        child: Center(
-                            child: Image(
-                      image: AssetImage('assets/Saeule.jpg'),
-                    ))))),
-            Expanded(
-                child: InkWell(
-                    onTap: () {
-                      zoom(2, 4);
-                    },
-                    child: Ink(
-                        child: Center(
-                            child: Image(
-                      image: AssetImage('assets/Saeule.jpg'),
-                    ))))),
-            Expanded(
-                child: InkWell(
-                    onTap: () {
-                      zoom(3, 4);
-                    },
-                    child: Ink(
-                        child: Center(
-                            child: Image(
-                      image: AssetImage('assets/Saeule.jpg'),
-                    ))))),
-            Expanded(
-                child: InkWell(
-                    onTap: () {
-                      zoom(4, 4);
-                    },
-                    child: Ink(
-                        child: Center(
-                            child: Image(
-                      image: AssetImage('assets/Saeule.jpg'),
-                    )))))
+            InkWell(
+                onTap: () {
+                  zoom(1, 4);
+                },
+                child: Ink(
+                    child: Center(
+                        child: Image(
+                  image: AssetImage(getsectionPicture(1, 4)),
+                )))),
+            InkWell(
+                onTap: () {
+                  zoom(1, 3);
+                },
+                child: Ink(
+                    child: Center(
+                        child: Image(
+                  image: AssetImage(getsectionPicture(1, 3)),
+                )))),
+            InkWell(
+                onTap: () {
+                  zoom(1, 2);
+                },
+                child: Ink(
+                    child: Center(
+                        child: Image(
+                  image: AssetImage(getsectionPicture(1, 2)),
+                )))),
+            InkWell(
+                onTap: () {
+                  zoom(1, 1);
+                },
+                child: Ink(
+                    child: Center(
+                        child: Image(
+                  image: AssetImage(getsectionPicture(1, 1)),
+                ))))
           ],
-        ),
-        Row(children: [
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(1, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  ))))),
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(2, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  ))))),
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(3, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  ))))),
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(4, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  )))))
-        ]),
-        Row(children: [
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(1, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  ))))),
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(2, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  ))))),
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(3, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  ))))),
-          Expanded(
-              child: InkWell(
-                  onTap: () {
-                    zoom(4, 4);
-                  },
-                  child: Ink(
-                      child: Center(
-                          child: Image(
-                    image: AssetImage('assets/Saeule.jpg'),
-                  )))))
-        ]),
+        )),
+        Expanded(
+            child: Column(children: [
+          InkWell(
+              onTap: () {
+                zoom(2, 4);
+              },
+              child: Ink(
+                  child: Center(
+                      child: Image(
+                image: AssetImage(getsectionPicture(2, 4)),
+              )))),
+          InkWell(
+              onTap: () {
+                zoom(2, 3);
+              },
+              child: Ink(
+                  child: Center(
+                      child: Image(
+                image: AssetImage(getsectionPicture(2, 3)),
+              )))),
+          InkWell(
+              onTap: () {
+                zoom(2, 2);
+              },
+              child: Ink(
+                  child: Center(
+                      child: Image(
+                image: AssetImage(getsectionPicture(2, 2)),
+              )))),
+          InkWell(
+              onTap: () {
+                zoom(2, 1);
+              },
+              child: Ink(
+                  child: Center(
+                      child: Image(
+                image: AssetImage(getsectionPicture(2, 1)),
+              ))))
+        ])),
+        Expanded(
+            child: Column(children: [
+          InkWell(
+              onTap: () {
+                zoom(3, 4);
+              },
+              child: Ink(
+                  child: Center(
+                      child: Image(
+                image: AssetImage(getsectionPicture(3, 4)),
+              )))),
+          InkWell(
+              onTap: () {
+                zoom(3, 3);
+              },
+              child: Ink(
+                  child: Center(
+                      child: Image(
+                image: AssetImage(getsectionPicture(3, 3)),
+              )))),
+          InkWell(
+              onTap: () {
+                zoom(3, 2);
+              },
+              child: Ink(
+                  child: Center(
+                      child: Image(
+                image: AssetImage(getsectionPicture(3, 2)),
+              )))),
+          InkWell(
+              onTap: () {
+                zoom(3, 1);
+              },
+              child: Ink(
+                  child: Center(
+                      child: Image(
+                image: AssetImage(getsectionPicture(3, 1)),
+              ))))
+        ])),
       ])),
     );
   }
 }
 
-String sectionPicture(int x, int y) {
+String getsectionPicture(int x, int y) {
   return 'assets/Saeule.jpg';
 }
 
