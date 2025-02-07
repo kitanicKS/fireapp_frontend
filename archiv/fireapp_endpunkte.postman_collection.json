@@ -25,6 +25,21 @@
 		{
 			"name": "base_url/lagerort",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "some_cool_user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "!!1234fireappppaerif4321!!",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -34,6 +49,38 @@
 					],
 					"path": [
 						"lagerort"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "base_url/lagerort Copy",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "some_cool_user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "!!1234fireappppaerif4321!!",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/lagerartikel",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"lagerartikel"
 					]
 				}
 			},
