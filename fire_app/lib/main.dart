@@ -1,4 +1,22 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'constants.dart';
+
+Future<List<dynamic>> fetchData(String url, String username, String password) async {
+  final response = await http.get(
+    Uri.parse(url),
+    headers: {
+      'Authorization': 'Basic ' + base64Encode(utf8.encode('$username:$password')),
+    },
+  );
+
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  } else {
+    throw Exception('Failed to load data');
+  }
+}
 
 void main() {
   runApp(const MyApp());
@@ -36,6 +54,22 @@ class _MyHomePageState extends State<MyHomePage> {
   int boxSectionY = 0;
   int boxPosition = 0;
 
+  void _loadData() async {
+    String url = apiurl;
+    String username = apiusername;
+    String password = apipassword;
+
+    try {
+      List<dynamic> data = await fetchData(url, username, password);
+      print(data);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Data loaded: ${data.toString()}')),
+    );
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +80,10 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           //child: SingleChildScrollView(
           child: Column(children: [
+                        ElevatedButton(
+              onPressed: _loadData,
+              child: Text('Load /lagerort'),
+            ),
         Container(
           height: 30,
         ),
