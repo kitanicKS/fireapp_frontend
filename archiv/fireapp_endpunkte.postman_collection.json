@@ -55,7 +55,7 @@
 			"response": []
 		},
 		{
-			"name": "base_url/lagerort Copy",
+			"name": "base_url/lagerartikel",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -81,6 +81,38 @@
 					],
 					"path": [
 						"lagerartikel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "base_url/lagermatching",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "some_cool_user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "!!1234fireappppaerif4321!!",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/lagermatching",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"lagermatching"
 					]
 				}
 			},
