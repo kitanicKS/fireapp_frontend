@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Hochregallager',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -42,6 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Colors.red,
         title: Text(widget.title),
+        actions: [
+          IconButton(
+              onPressed: () {
+                showSearch(context: context, delegate: CustomSearcheDelegate());
+              },
+              icon: const Icon(Icons.search))
+        ],
       ),
       body: Center(
           //child: SingleChildScrollView(
@@ -279,8 +286,68 @@ class _MyHomePageState extends State<MyHomePage> {
       boxSelected = false;
     }
   }
+
+  String getBoxname(int x, int y) {
+    return 'aaaaaaaa';
+  }
 }
 
-String getBoxname(int x, int y) {
-  return 'aaaaaaaa';
+class CustomSearcheDelegate extends SearchDelegate {
+  List<String> autofill = [];
+
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query = '';
+          },
+          icon: const Icon(Icons.clear))
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: const Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    List<String> loop = [];
+    for (var name in autofill) {
+      if (name.toLowerCase().contains(query.toLowerCase())) {
+        loop.add(name);
+      }
+    }
+    return ListView.builder(
+        itemBuilder: (context, index) {
+          var result = loop[index];
+          return ListTile(
+            title: Text(result),
+          );
+        },
+        itemCount: loop.length);
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List<String> loop = [];
+    for (var name in autofill) {
+      if (name.toLowerCase().contains(query.toLowerCase())) {
+        loop.add(name);
+      }
+    }
+    return ListView.builder(
+        itemBuilder: (context, index) {
+          var result = loop[index];
+          return ListTile(
+            title: Text(result),
+          );
+        },
+        itemCount: loop.length);
+  }
 }
