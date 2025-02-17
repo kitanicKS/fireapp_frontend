@@ -6,6 +6,1152 @@
 	},
 	"item": [
 		{
+			"name": "/lagerartikel",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "base_url/v1/lagerartikel",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/lagerartikel",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"lagerartikel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagerartikel/{la_id}",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/lagerartikel/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagerartikel",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagerartikel/{la_id}",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/lagerartikel/13",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagerartikel",
+										"13"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagerartikel",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"la_name\":\"Grillzange\",\"la_anzahl\":10,\"la_pic\":\"path/to/grillzange.jpg\",\"la_description\":\"Zange zum Grillen\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/lagerartikel",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagerartikel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagerartikel/{la_id}",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"la_name\":\"Grillzange\",\"la_anzahl\":10,\"la_pic\":\"path/to/grillzange.jpg\",\"la_description\":\"Zange zum Grillen\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/lagerartikel/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagerartikel",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "base_url/lagerartikel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lagerartikel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerartikel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagerartikel/{la_id}",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lagerartikel/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerartikel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagerartikel/{la_id}",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lagerartikel/13",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerartikel",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagerartikel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"la_name\":\"Grillzange\",\"la_anzahl\":10,\"la_pic\":\"path/to/grillzange.jpg\",\"la_description\":\"Zange zum Grillen\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/lagerartikel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerartikel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagerartikel/{la_id}",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"la_name\":\"Grillzange\",\"la_anzahl\":10,\"la_pic\":\"path/to/grillzange.jpg\",\"la_description\":\"Zange zum Grillen\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/lagerartikel/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerartikel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/lagerort",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "base_url/v1/lagerort",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/lagerort",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagerort"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagerort/{lo_id}",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/lagerort/4",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagerort",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagerort/{lo_id}",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/lagerort/4",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagerort",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagerort",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"lo_name\":\"Box für Grillen\",\"lo_box\":\"obenrechts\",\"lo_ablage\":\"Hochregallager\",\"lo_raum\":\"Fahrzeughalle\",\"lo_flaeche\":\"FFW Haus\",\"lo_pic\":\"path/to/pic.jpg\",\"lo_description\":\"Da ist Zeug drin was man zum Grillen braucht\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/lagerort",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagerort"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagerort/{lo_id}",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"lo_name\":\"Box für Grillen\",\"lo_box\":\"obenrechts\",\"lo_ablage\":\"Hochregallager\",\"lo_raum\":\"Fahrzeughalle\",\"lo_flaeche\":\"FFW Haus\",\"lo_pic\":\"path/to/pic.jpg\",\"lo_description\":\"Da ist Zeug drin was man zum Grillen braucht\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/lagerort",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagerort"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "base_url/lagerort",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lagerort",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerort"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagerort/{lo_id}",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lagerort/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerort",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagerort/{lo_id}",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lagerort/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerort",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagerort",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"lo_name\":\"Box für Grillen\",\"lo_box\":\"obenrechts\",\"lo_ablage\":\"Hochregallager\",\"lo_raum\":\"Fahrzeughalle\",\"lo_flaeche\":\"FFW Haus\",\"lo_pic\":\"path/to/pic.jpg\",\"lo_description\":\"Da ist Zeug drin was man zum Grillen braucht\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/lagerort",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerort"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagerort/{lo_id}",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"lo_name\":\"Box für Grillen\",\"lo_box\":\"obenrechts\",\"lo_ablage\":\"Hochregallager\",\"lo_raum\":\"Fahrzeughalle\",\"lo_flaeche\":\"FFW Haus\",\"lo_pic\":\"path/to/pic.jpg\",\"lo_description\":\"Da ist Zeug drin was man zum Grillen braucht\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/lagerort",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagerort"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/lagermatching",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "base_url/v1/lagermatching",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/lagermatching",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagermatching"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagermatching/{lm_id}",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/lagermatching/4",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagermatching",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagermatching",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"lm_la_id\":4,\"lm_lo_id\":4}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/lagermatching",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagermatching"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagermatching/{lm_id}",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"lm_la_id\":4,\"lm_lo_id\":4}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/lagermatching/4",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagermatching",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "base_url/v1/lagermatching/{lm_id}",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "some_cool_user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "!!1234fireappppaerif4321!!",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"lm_la_id\":3,\"lm_lo_id\":4}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/lagermatching/4",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"lagermatching",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "base_url/lagermatching",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lagermatching",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagermatching"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagermatching/{lm_id}",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lagermatching/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagermatching",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagermatching",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"lm_la_id\":4,\"lm_lo_id\":4}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/lagermatching",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagermatching"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagermatching/{lm_id}",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"lm_la_id\":4,\"lm_lo_id\":4}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/lagermatching/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagermatching",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "base_url/lagermatching/{lm_id}",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some_cool_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "!!1234fireappppaerif4321!!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"lm_la_id\":3,\"lm_lo_id\":4}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/lagermatching/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lagermatching",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "base_url",
 			"request": {
 				"method": "GET",
@@ -17,70 +1163,6 @@
 					],
 					"path": [
 						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "base_url/lagerort",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "some_cool_user",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "!!1234fireappppaerif4321!!",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/lagerort",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"lagerort"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "base_url/lagerort Copy",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "some_cool_user",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "!!1234fireappppaerif4321!!",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/lagerartikel",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"lagerartikel"
 					]
 				}
 			},
