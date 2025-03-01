@@ -19,7 +19,9 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable'
+          flutter-version: '3.7.1'  # Specify the exact version here
+          channel: stable
+          architecture: x64
 
       - name: Install dependencies
         run: flutter pub get
