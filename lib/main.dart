@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'constants.dart';
+// ignore: uri_does_not_exist
+import 'constant.dart';
 
-//comment
 
 final Logger _logger = Logger('MyAppLogger');
 
@@ -47,8 +47,11 @@ class MyHomePageState extends State<MyHomePage> {
   int boxPosition = 0;
   List<dynamic> fetchedData = [];
 
- final String apiUrl = apiurl;
+// ignore: undefined_identifier
+  final String apiUrl = apiurl;
+// ignore: undefined_identifier
   final String apiUsername = apiusername;
+// ignore: undefined_identifier
   final String apiPassword = apipassword;
 
   Future<List<dynamic>> fetchData(String url, String username, String password) async {
