@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'constants.dart';
 
-//comment
 
 final Logger _logger = Logger('MyAppLogger');
 
