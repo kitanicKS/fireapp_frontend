@@ -1,14 +1,27 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:logging/logging.dart';
 import 'constants.dart';
 
+final Logger _logger = Logger('MyAppLogger');
+
+void _setupLogging() {
+  Logger.root.level = Level.ALL; // Set the logging level to ALL
+  Logger.root.onRecord.listen((record) {
+    // ignore: avoid_print
+    print('${record.level.name}: ${record.time}: ${record.loggerName}: ${record.message}');
+  });
+}
+
 Future<void> main() async {
+  _setupLogging();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,11 +31,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   bool boxSectionSelected = false;
   bool boxSelected = false;
   int boxSectionX = 0;
@@ -38,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final response = await http.get(
       Uri.parse(url),
       headers: {
-        'Authorization': 'Basic ' + base64Encode(utf8.encode('$username:$password')),
+        'Authorization': 'Basic ${base64Encode(utf8.encode('$username:$password'))}',
       },
     );
 
@@ -55,9 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         fetchedData = data;
       });
-      print(data);
+      _logger.info('Data loaded: $data');
     } catch (e) {
-      print(e);
+      _logger.severe('Failed to load data', e);
     }
   }
 
@@ -334,7 +349,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                     );
-                  }).toList(),
+                  }),
                 ],
               ),
           ],
