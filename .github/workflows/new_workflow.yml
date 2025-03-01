@@ -19,7 +19,7 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.1'  # Specify the exact version here
+          flutter-version: '3.6.0'  # Specify the exact version here
           channel: stable
           architecture: x64
 
