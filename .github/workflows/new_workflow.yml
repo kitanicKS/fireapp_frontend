@@ -7,7 +7,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    env:
+      USERAPI: ${{ secrets.BASIC_AUTH_USER }} # variable for workflow
+      PASSWORD: ${{ secrets.BASIC_AUTH_PASS }}  # variable for workflow
+      API_URL: ${{ secrets.API_URL }}  # variable for workflow
     steps:
       - uses: actions/checkout@v4
       - run: echo "Workflow triggered successfully!"

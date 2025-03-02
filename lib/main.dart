@@ -2,8 +2,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 // ignore: uri_does_not_exist
-import 'constant.dart';
+//import 'constant.dart';
 
 
 final Logger _logger = Logger('MyAppLogger');
@@ -17,6 +18,7 @@ void _setupLogging() {
 }
 
 Future<void> main() async {
+  await dotenv.load(fileName: ".env");
   _setupLogging();
   runApp(MyApp());
 }
@@ -47,12 +49,16 @@ class MyHomePageState extends State<MyHomePage> {
   int boxPosition = 0;
   List<dynamic> fetchedData = [];
 
+  final String apiUrl = dotenv.env['API_URL']!;
+  final String apiUsername = dotenv.env['API_USERNAME']!;
+  final String apiPassword = dotenv.env['API_PASSWORD']!;
+
 // ignore: undefined_identifier
-  final String apiUrl = apiurl;
+//  final String apiUrl = apiurl;
 // ignore: undefined_identifier
-  final String apiUsername = apiusername;
+//  final String apiUsername = apiusername;
 // ignore: undefined_identifier
-  final String apiPassword = apipassword;
+//  final String apiPassword = apipassword;
 
   Future<List<dynamic>> fetchData(String url, String username, String password) async {
     final response = await http.get(
