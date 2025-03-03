@@ -86,7 +86,7 @@ class MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
-        title: Text('My App'),
+        title: Text('Fire App'),
       ),
       body: Center(
         child: Column(
