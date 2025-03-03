@@ -35,6 +35,7 @@ void main() {
     //expect(imageFinder2, findsOneWidget);
 
  final state = tester.state(find.byType(MyHomePage)) as MyHomePageState;
+    // ignore: invalid_use_of_protected_member
     state.setState(() {
       state.boxSectionSelected = true;
       state.boxSelected = true;
