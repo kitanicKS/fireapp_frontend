@@ -1,4 +1,5 @@
 // lib/constants.dart
-const String apiurl = 'https://api.example.com';
+const String apiurllagerartikel = 'https://api.example.com';
+const String apiurllagermatching = 'https://api.example.com';
 const String apiusername = 'yourUsername';
 const String apipassword = 'yourPassword';

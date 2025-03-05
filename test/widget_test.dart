@@ -11,33 +11,19 @@ import 'package:fire_app/main.dart';
 import 'package:fire_app/model/lagerartikel_model.dart';
 import 'package:fire_app/model/lagermatching_model.dart';
 import 'package:fire_app/model/lagerort_model.dart';
+import 'package:fire_app/api_service/api_lagerartikel.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/testing.dart';
+import 'dart:convert';
 
 void main() {
-
 
   testWidgets('Table and text "Gegenstand" and "Anzahl" are present', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
- // Find the image with the specific asset path.
-    //final imageFinder = find.byWidgetPredicate((widget) =>
-    //  widget is Image && widget.image is AssetImage && (widget.image as AssetImage).assetName == 'assets/hochregal/14.jpg');
 
-    // Verify that the image is present.
-   // expect(imageFinder, findsOneWidget);
-
-    // Tap on the image.
-   // await tester.tap(imageFinder);
-   // await tester.pumpAndSettle();
-
-   // Find the image with the specific asset path.
-    //final imageFinder2 = find.byWidgetPredicate((widget) =>
-    //  widget is Image && widget.image is AssetImage && (widget.image as AssetImage).assetName == 'assets/hochregal/32.jpg');
-
-    // Verify that the image is present.
-    //expect(imageFinder2, findsOneWidget);
-
- final state = tester.state(find.byType(MyHomePage)) as MyHomePageState;
+  final state = tester.state(find.byType(MyHomePage)) as MyHomePageState;
     // ignore: invalid_use_of_protected_member
     state.setState(() {
       state.boxSectionSelected = true;
@@ -46,10 +32,6 @@ void main() {
 
     // Rebuild the widget with the updated state.
     await tester.pump();
-
-    // Tap on the image.
-    //await tester.tap(imageFinder2);
-    //await tester.pumpAndSettle();
 
     // Verify that the text "Gegenstand" and "Anzahl" are present.
     expect(find.text('Gegenstand'), findsOneWidget);
@@ -205,6 +187,82 @@ test('Lagerort model fromJson and toJson', () {
     expect(toJson['lo_flaeche'], 'FFW_Haus');
     expect(toJson['lo_pic'], 'path/to/pic.jpg');
     expect(toJson['lo_description'], 'Box im Hochregallager oben links');
+  });
+
+group('ApiService', () {
+    final mockClient = MockClient((request) async {
+      if (request.method == 'GET' && request.url.path == '/lagerartikel') {
+        return http.Response(jsonEncode([
+          {
+            'la_id': 1,
+            'la_name': 'Grillzange',
+            'la_anzahl': 10,
+            'la_pic': 'somepic',
+            'la_description': 'Zange zum Grillen'
+          }
+        ]), 200);
+      } else if (request.method == 'POST' && request.url.path == '/lagerartikel') {
+        return http.Response(jsonEncode({
+          'la_id': 2,
+          'la_name': 'Feuerlöscher',
+          'la_anzahl': 5,
+          'la_pic': 'somepic2',
+          'la_description': 'Feuerlöscher für Notfälle'
+        }), 201);
+      } else if (request.method == 'PUT' && request.url.path == '/lagerartikel/1') {
+        return http.Response(jsonEncode({
+          'la_id': 1,
+          'la_name': 'Grillzange Updated',
+          'la_anzahl': 15,
+          'la_pic': 'somepic',
+          'la_description': 'Zange zum Grillen Updated'
+        }), 200);
+      } else if (request.method == 'DELETE' && request.url.path == '/lagerartikel/1') {
+        return http.Response('', 200);
+      } else {
+        return http.Response('Not Found', 404);
+      }
+    });
+
+    final apiService = ApiService('https://api.example.com', 'yourUsername', 'yourPassword', mockClient);
+
+    test('fetchLagerartikel returns a list of Lagerartikel', () async {
+      final result = await apiService.fetchLagerartikel();
+      expect(result.length, 1);
+      expect(result[0].id, 1);
+      expect(result[0].name, 'Grillzange');
+    });
+
+    test('createLagerartikel creates a new Lagerartikel', () async {
+      final newLagerartikel = Lagerartikel(
+        id: 2,
+        name: 'Feuerlöscher',
+        quantity: 5,
+        pic: 'somepic2',
+        description: 'Feuerlöscher für Notfälle',
+      );
+      final result = await apiService.createLagerartikel(newLagerartikel);
+      expect(result.id, 2);
+      expect(result.name, 'Feuerlöscher');
+    });
+
+    test('updateLagerartikel updates an existing Lagerartikel', () async {
+      final updatedLagerartikel = Lagerartikel(
+        id: 1,
+        name: 'Grillzange Updated',
+        quantity: 15,
+        pic: 'somepic',
+        description: 'Zange zum Grillen Updated',
+      );
+      final result = await apiService.updateLagerartikel(updatedLagerartikel);
+      expect(result.id, 1);
+      expect(result.name, 'Grillzange Updated');
+    });
+
+    test('deleteLagerartikel deletes an existing Lagerartikel', () async {
+      await apiService.deleteLagerartikel(1);
+      // If no exception is thrown, the test passes
+    });
   });
 
 }
