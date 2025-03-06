@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:fire_app/model/lagerartikel_model.dart';
 
-class ApiService {
+class ApiServiceLagerartikel {
   final String baseUrl;
   final String username;
   final String password;
   final http.Client client;
 
   // Konstruktor nimmt die Basis-URL sowie die Basic Auth-Zugangsdaten entgegen
-  ApiService(this.baseUrl, this.username, this.password, this.client);
+  ApiServiceLagerartikel(this.baseUrl, this.username, this.password, this.client);
 
   // Methode, um die Basic Auth-Zugangsdaten zu codieren und den Authorization-Header zu erzeugen
   String _getAuthHeader() {
