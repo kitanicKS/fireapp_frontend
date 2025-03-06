@@ -1,16 +1,20 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:fire_app/model/lagermatching_model.dart';
-
+import 'package:logging/logging.dart';
+import 'package:fire_app/logging_setup.dart';
 
 class ApiServiceLagermatching {
   final String baseUrl;
   final String username;
   final String password;
   final http.Client client;
+  final Logger _logger = Logger('ApiServiceLagermatching');
 
   // Constructor takes the base URL, Basic Auth credentials, and an http.Client
-  ApiServiceLagermatching(this.baseUrl, this.username, this.password, this.client);
+  ApiServiceLagermatching(this.baseUrl, this.username, this.password, this.client) {
+    setupLogging();
+  }
 
   // Method to encode the Basic Auth credentials and generate the Authorization header
   String _getAuthHeader() {
@@ -30,9 +34,11 @@ class ApiServiceLagermatching {
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
+     _logger.info('Fetched lagermatching: ${response.statusCode} ${response.body}');
       return data.map((json) => Lagermatching.fromJson(json)).toList();
     } else {
-      throw Exception('Failed to load lagermatching');
+      _logger.severe('Failed to fetch lagermatching: ${response.statusCode} ${response.body}');
+      throw Exception('Failed to fetch lagermatching');
     }
   }
 
@@ -48,9 +54,10 @@ class ApiServiceLagermatching {
     );
 
     if (response.statusCode == 201) {
+      _logger.info('Create lagermatching: ${response.statusCode} ${response.body}');
       return Lagermatching.fromJson(json.decode(response.body));
     } else {
-      print('Failed to create lagermatching: ${response.statusCode} ${response.body}');
+      _logger.severe('Failed to create lagermatching: ${response.statusCode} ${response.body}');
       throw Exception('Failed to create lagermatching');
     }
   }
@@ -67,8 +74,10 @@ class ApiServiceLagermatching {
     );
 
     if (response.statusCode == 200) {
+      _logger.info('Update lagermatching: ${response.statusCode} ${response.body}');
       return Lagermatching.fromJson(json.decode(response.body));
     } else {
+     _logger.severe('Failed to update lagermatching: ${response.statusCode} ${response.body}');
       throw Exception('Failed to update lagermatching');
     }
   }
@@ -83,7 +92,10 @@ class ApiServiceLagermatching {
     );
 
     if (response.statusCode != 200) {
+     _logger.severe('Failed to delete lagermatching: ${response.statusCode} ${response.body}');
       throw Exception('Failed to delete lagermatching');
+    } else {
+      _logger.info('Delete lagermatching: ${response.statusCode} ${response.body}');
     }
   }
 }
