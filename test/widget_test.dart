@@ -9,11 +9,11 @@
 //import 'package:flutter_test/flutter_test.dart';
 //import 'package:fire_app/main.dart';
 
-
+/*
 
 void main() {
 
-/*
+
   testWidgets('Table and text "Gegenstand" and "Anzahl" are present', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
@@ -88,7 +88,8 @@ void main() {
     // Verify that the AppBar title is 'Fire App'.
     expect(find.text('Fire App'), findsOneWidget);
   });
-*/  
+
 
 
 }
+*/  
