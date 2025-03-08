@@ -45,4 +45,6 @@ jobs:
       # package:test for this step to succeed. Note that Flutter projects will
       # want to change this to 'flutter test'.
       - name: Run tests
-        run: flutter test fire_app/test/widget_test.dart
+        run: |
+          flutter test fire_app/test/api_service_test.dart
+          flutter test fire_app/test/data_model_test.dart
