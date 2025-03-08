@@ -37,5 +37,5 @@ jobs:
       # Run Flutter tests
       - name: Run tests
         run: |
-          flutter test fire_app/test/api_service_test.dart
-          flutter test fire_app/test/data_model_test.dart
+          flutter test test/api_service_test.dart
+          flutter test test/data_model_test.dart
