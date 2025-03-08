@@ -1,23 +1,17 @@
-import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:logging/logging.dart';
+//import 'package:logging/logging.dart';
+import 'package:fire_app/logging_setup.dart';
+import 'package:fire_app/model/lagerartikel_model.dart';
+import 'package:fire_app/api_service/api_lagerartikel.dart';
 // ignore: uri_does_not_exist
 import 'constant.dart';
 
+//final Logger _logger = Logger('MyAppLogger');
 
-final Logger _logger = Logger('MyAppLogger');
-
-void _setupLogging() {
-  Logger.root.level = Level.ALL; // Set the logging level to ALL
-  Logger.root.onRecord.listen((record) {
-    // ignore: avoid_print
-    print('${record.level.name}: ${record.time}: ${record.loggerName}: ${record.message}');
-  });
-}
 
 Future<void> main() async {
-  _setupLogging();
+  setupLogging();
   runApp(MyApp());
 }
 
@@ -45,41 +39,30 @@ class MyHomePageState extends State<MyHomePage> {
   int boxSectionX = 0;
   int boxSectionY = 0;
   int boxPosition = 0;
-  List<dynamic> fetchedData = [];
+  late ApiServiceLagerartikel apiService; // neu
+  late Future<List<Lagerartikel>> lagerartikelList; // neu
 
 // ignore: undefined_identifier
-  final String apiUrl = apiurl;
+  final String apiUrllagerartikel = apiurllagerartikel;
+// ignore: undefined_identifier
+  final String apiUrllagermatching = apiurllagermatching;
 // ignore: undefined_identifier
   final String apiUsername = apiusername;
 // ignore: undefined_identifier
   final String apiPassword = apipassword;
 
-  Future<List<dynamic>> fetchData(String url, String username, String password) async {
-    final response = await http.get(
-      Uri.parse(url),
-      headers: {
-        'Authorization': 'Basic ${base64Encode(utf8.encode('$username:$password'))}',
-      },
+@override
+  void initState() {
+    super.initState();
+    apiService = ApiServiceLagerartikel(
+      apiUrllagerartikel, // Replace with your API base URL
+      apiUsername,
+      apiPassword,
+      http.Client(),
     );
-
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body);
-    } else {
-      throw Exception('Failed to load data');
-    }
+    lagerartikelList = apiService.fetchLagerartikel();
   }
 
-  void _loadData() async {
-    try {
-      List<dynamic> data = await fetchData(apiUrl, apiUsername, apiPassword);
-      setState(() {
-        fetchedData = data;
-      });
-      _logger.info('Data loaded: $data');
-    } catch (e) {
-      _logger.severe('Failed to load data', e);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,10 +74,6 @@ class MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
-            ElevatedButton(
-              onPressed: _loadData,
-              child: Text('Load Data'),
-            ),
             Container(
               height: 30,
             ),
@@ -316,46 +295,59 @@ class MyHomePageState extends State<MyHomePage> {
               ),
             if (boxSelected) Container(height: 40),
             if (boxSelected)
-              Table(
-                border: TableBorder.all(color: Colors.black),
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                children: [
-                  const TableRow(
-                    decoration: BoxDecoration(color: Colors.red),
-                    children: [
-                      TableCell(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('Gegenstand'),
-                        ),
-                      ),
-                      TableCell(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('Anzahl'),
-                        ),
-                      ),
-                    ],
-                  ),
-                  ...fetchedData.map((item) {
-                    return TableRow(
+          FutureBuilder<List<Lagerartikel>>(
+                future: lagerartikelList,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator();
+                  } else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    return Text('No data available');
+                  } else {
+                    return Table(
+                      border: TableBorder.all(color: Colors.black),
+                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                       children: [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(item['la_name']),
-                          ),
+                        const TableRow(
+                          decoration: BoxDecoration(color: Colors.red),
+                          children: [
+                            TableCell(
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text('Gegenstand'),
+                              ),
+                            ),
+                            TableCell(
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text('Anzahl'),
+                              ),
+                            ),
+                          ],
                         ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(item['la_anzahl'].toString()),
-                          ),
-                        ),
+                        ...snapshot.data!.map((item) {
+                          return TableRow(
+                            children: [
+                              TableCell(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(item.name),
+                                ),
+                              ),
+                              TableCell(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(item.quantity.toString()),
+                                ),
+                              ),
+                            ],
+                          );
+                        }),
                       ],
                     );
-                  }),
-                ],
+                  }
+                },
               ),
           ],
         ),

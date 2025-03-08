@@ -36,4 +36,6 @@ jobs:
 
       # Run Flutter tests
       - name: Run tests
-        run: flutter test test/widget_test.dart
+        run: |
+          flutter test test/api_service_test.dart
+          flutter test test/data_model_test.dart
