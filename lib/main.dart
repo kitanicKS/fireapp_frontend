@@ -9,6 +9,11 @@ import 'constant.dart';
 
 //final Logger _logger = Logger('MyAppLogger');
 
+const String apiurllagerartikel = 'http://h3003963.stratoserver.net';
+const String apiurllagermatching =
+    'http://h3003963.stratoserver.net/lagermatching';
+const String apiusername = 'some_cool_user';
+const String apipassword = '!!1234fireappppaerif4321!!';
 
 Future<void> main() async {
   setupLogging();
@@ -51,7 +56,7 @@ class MyHomePageState extends State<MyHomePage> {
 // ignore: undefined_identifier
   final String apiPassword = apipassword;
 
-@override
+  @override
   void initState() {
     super.initState();
     apiService = ApiServiceLagerartikel(
@@ -62,7 +67,6 @@ class MyHomePageState extends State<MyHomePage> {
     );
     lagerartikelList = apiService.fetchLagerartikel();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +81,32 @@ class MyHomePageState extends State<MyHomePage> {
             Container(
               height: 30,
             ),
+            for (boxSectionX = 1; boxSectionX < 4; boxSectionX++)
+              Expanded(
+                child: Row(
+                  children: [
+                    for (boxSectionY = 1; boxSectionY < 4; boxSectionY++)
+                      Column(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              zoom(boxSectionX, boxSectionY);
+                              setState(() {});
+                            },
+                            child: Ink(
+                              child: Center(
+                                child: Image(
+                                  image: AssetImage(
+                                      'assets/hochregal/$boxSectionX$boxSectionY.jpg'),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                  ],
+                ),
+              ),
             Row(
               children: [
                 Expanded(
@@ -295,7 +325,7 @@ class MyHomePageState extends State<MyHomePage> {
               ),
             if (boxSelected) Container(height: 40),
             if (boxSelected)
-          FutureBuilder<List<Lagerartikel>>(
+              FutureBuilder<List<Lagerartikel>>(
                 future: lagerartikelList,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
@@ -307,7 +337,8 @@ class MyHomePageState extends State<MyHomePage> {
                   } else {
                     return Table(
                       border: TableBorder.all(color: Colors.black),
-                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      defaultVerticalAlignment:
+                          TableCellVerticalAlignment.middle,
                       children: [
                         const TableRow(
                           decoration: BoxDecoration(color: Colors.red),
