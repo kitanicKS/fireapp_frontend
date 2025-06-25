@@ -41,6 +41,7 @@ class MyHomePage extends StatefulWidget {
 class MyHomePageState extends State<MyHomePage> {
   bool boxSectionSelected = false;
   bool boxSelected = false;
+  bool firstrow = false;
   int boxSectionX = 0;
   int boxSectionY = 0;
   int boxPosition = 0;
@@ -81,214 +82,36 @@ class MyHomePageState extends State<MyHomePage> {
             Container(
               height: 30,
             ),
-            for (boxSectionX = 1; boxSectionX < 4; boxSectionX++)
-              Expanded(
-                child: Row(
-                  children: [
-                    for (boxSectionY = 1; boxSectionY < 4; boxSectionY++)
-                      Column(
-                        children: [
+            Row(
+              children: [
+                for (int x = 1; x < 4; x++)
+                  Expanded(
+                    child: Column(
+                      children: [
+                        for (int y = 4; y > 0; y--)
                           InkWell(
                             onTap: () {
-                              zoom(boxSectionX, boxSectionY);
+                              zoom(x, y);
                               setState(() {});
                             },
                             child: Ink(
                               child: Center(
                                 child: Image(
-                                  image: AssetImage(
-                                      'assets/hochregal/$boxSectionX$boxSectionY.jpg'),
+                                  image:
+                                      AssetImage('assets/hochregal/$x$y.jpg'),
                                 ),
                               ),
                             ),
                           )
-                        ],
-                      ),
-                  ],
-                ),
-              ),
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          zoom(1, 4);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/14.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          zoom(1, 3);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/13.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          zoom(1, 2);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/12.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          zoom(1, 1);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/11.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          zoom(2, 4);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/24.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          zoom(2, 3);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/23.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          zoom(2, 2);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/22.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          zoom(2, 1);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/21.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          zoom(3, 4);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/34.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          zoom(3, 3);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/33.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          zoom(3, 2);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/32.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          zoom(3, 1);
-                          setState(() {});
-                        },
-                        child: Ink(
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/hochregal/31.jpg'),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                      ],
+                    ),
+                  )
               ],
             ),
             Container(
               height: 40,
             ),
-            if (boxSectionSelected)
+            if (boxSectionSelected && !firstrow)
               Row(
                 children: [
                   Expanded(
@@ -389,10 +212,27 @@ class MyHomePageState extends State<MyHomePage> {
   void zoom(int x, int y) {
     boxSectionX = x;
     boxSectionY = y;
-    if (boxSectionSelected == false) {
-      boxSectionSelected = true;
+
+    if (x == 1) {
+      firstrow = true;
+      if (boxSelected == false) {
+        boxSelected = true;
+      } else {
+        boxSelected = false;
+      }
     } else {
-      boxSectionSelected = false;
+      firstrow = false;
+      if (boxSectionSelected == false) {
+        boxSectionSelected = true;
+        if (boxSelected == false) {
+          boxSectionSelected = true;
+          boxSelected = false;
+        } else {
+          boxSelected = false;
+        }
+      } else {
+        boxSectionSelected = false;
+      }
     }
   }
 
