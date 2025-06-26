@@ -9,12 +9,6 @@ import 'constant.dart';
 
 //final Logger _logger = Logger('MyAppLogger');
 
-const String apiurllagerartikel = 'http://h3003963.stratoserver.net';
-const String apiurllagermatching =
-    'http://h3003963.stratoserver.net/lagermatching';
-const String apiusername = 'some_cool_user';
-const String apipassword = '!!1234fireappppaerif4321!!';
-
 Future<void> main() async {
   setupLogging();
   runApp(MyApp());
@@ -215,13 +209,17 @@ class MyHomePageState extends State<MyHomePage> {
 
     if (x == 1) {
       firstrow = true;
+      boxSectionSelected = false;
       if (boxSelected == false) {
         boxSelected = true;
       } else {
         boxSelected = false;
       }
     } else {
-      firstrow = false;
+      if (firstrow) {
+        boxSelected = false;
+        firstrow = false;
+      }
       if (boxSectionSelected == false) {
         boxSectionSelected = true;
         if (boxSelected == false) {
@@ -248,8 +246,4 @@ class MyHomePageState extends State<MyHomePage> {
       boxSelected = false;
     }
   }
-}
-
-String getBoxname(int x, int y) {
-  return 'aaaaaaaa';
 }
